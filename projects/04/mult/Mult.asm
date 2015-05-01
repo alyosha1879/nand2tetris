@@ -12,7 +12,7 @@ M=0 // R2=0
 (LOOP)
 @1
 D=M // D=R1
-@END // M=ADDR(END)
+@END // A=ADDR(END)
 D;JLE // if D=<0 then goto END
 @1
 M=M-1 //R1-=1
