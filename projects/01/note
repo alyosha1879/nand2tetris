@@ -17,7 +17,7 @@ a or b = not ((not a) and (not b))
        = (a nand a) nand (b nand b)
 
 
-⭐︎Project01で作成したゲート一覧：以外に数が多い
+⭐︎Project01で作成したゲート一覧：意外に数が多い
 ・Notゲート
 ・Andゲート
 ・Orゲート
