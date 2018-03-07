@@ -1,0 +1,28 @@
+andやorをどうやってnandで表現するのかの導き方がさっぱりわからなかったため導出方法のメモ。
+こういうのは情報工学の基本のはずなんだけど自分はしらないんだなぁ。。
+
+⭐︎前提
+a nand b = not (a and b)
+not a = a nand a
+
+⭐︎ANDの場合 -> nandを定義に従って展開しnotのnand表現を用いる。
+
+a and b = not (not (a and b))
+        = (not (a and b))) nand (not (a and b)))
+        = (a nand b) nand (a nand b)
+        
+⭐︎ORの場合 -> 二重否定とドモルガンの法則を利用する。
+a or b = not ((not a) and (not b))
+       = (not a) nand (not b)
+       = (a nand a) nand (b nand b)
+
+
+⭐︎Project01で作成したゲート一覧：意外に数が多い
+・Notゲート
+・Andゲート
+・Orゲート
+・Xorゲート
+・マルチプレクサゲート
+・デマルチプレクサゲート
+・多ビットNot/And/Or/Xorゲート
+・多ビットマルチプレクサ
