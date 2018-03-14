@@ -49,14 +49,23 @@ class Parser:
         if self.currentType == 'L_COMMAND':
            return self.currentCommand[1:-1]
 
-    def dest():
-        pass
+    def dest(self):
 
-    def comp():
-        pass
+        if '=' in self.currentCommand:
+            return self.currentCommand.split('=')[0]
+    def comp(self):
 
-    def jump():
-        pass
+        if '=' in self.currentCommand:
+            return self.currentCommand.split('=')[1]
+        elif ';' in self.currentCommand:
+            return self.currentCommand.split(';')[0]
+        else:
+            return self.currentCommand
+
+    def jump(self):
+
+        if ';' in self.currentCommand:
+            return self.currentCommand.split(';')[1]
 
 test = Parser()
 print test.commandsList
@@ -64,9 +73,13 @@ print test.commandsList
 while True:
     if test.hasMoreCommands():
         test.advance()
-        print test.commandType()
+        if test.commandType() == 'C_COMMAND':
+            print test.dest()
+            print test.comp()
+            print test.jump()
 
         if test.currentType != 'C_COMMAND':
             print test.symbol()
     else:
         break
+            
